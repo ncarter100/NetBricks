@@ -1,3 +1,5 @@
+
+// njc this is exact match of struct rte_mbuf
 #[repr(C)]
 pub struct MBuf {
     buf_addr: *mut u8,

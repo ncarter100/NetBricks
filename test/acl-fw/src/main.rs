@@ -20,6 +20,9 @@ mod nf;
 
 const CONVERSION_FACTOR: f64 = 1000000000.;
 
+// njc test is a <generic> function.  The return type is generic, compiler cant infer type
+// parameters so we have to give the type of S
+// We say this function is generic over S
 fn test<S: Scheduler + Sized>(ports: Vec<CacheAligned<PortQueue>>, sched: &mut S) {
     for port in &ports {
         println!("Receiving port {} rxq {} txq {}",

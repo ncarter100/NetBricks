@@ -16,7 +16,7 @@ struct QueueMetadata {
     pub tail: AtomicUsize,
 }
 
-/// A multiproducer single consumer queue for mbufs. The main difference when compared to `std::sync::mpsc` is that this
+/// njc A multiproducer single consumer queue for mbufs. The main difference when compared to `std::sync::mpsc` is that this
 /// does not use a linked list (to avoid allocation). The hope is to eventually turn this into something that can carry
 /// `Packets` or sufficient metadata to reconstruct that structure.
 struct MpscQueue {

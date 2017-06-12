@@ -13,6 +13,7 @@
 #![allow(unused_features)]
 #![feature(integer_atomics)]
 
+// njc cfg_attr is to change behaviour of lint'er i.e. clippy
 #![cfg_attr(feature = "dev", allow(unstable_features))]
 // Need this since PMD port construction triggers too many arguments.
 #![cfg_attr(feature = "dev", allow(too_many_arguments))]
