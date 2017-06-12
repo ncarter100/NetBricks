@@ -52,7 +52,11 @@ pub fn acl_match<T: 'static + Batch<Header = NullHeader>>(parent: T, acls: Vec<A
         .transform(box move |p| { p.get_mut_header().swap_addresses(); })
         .parse::<IpHeader>()
         .filter(box move |p| {
-            let flow = p.get_header().flow().unwrap();
+            let flow = match p.get_header().flow() {
+                None => return false,
+                Some(f) => f,
+            };
+
             for acl in &acls {
                 if acl.matches(&flow, &flow_cache) {
                     if !acl.drop {
