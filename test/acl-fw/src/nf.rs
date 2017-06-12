@@ -34,6 +34,15 @@ impl Acl {
             false
         }
     }
+    pub fn print(&self) {
+        println!("Acl: IP src {:?}:{:?} IP dst {:?}:{:?} established {:?} drop {:?}\n",
+                 self.src_ip,
+                 self.src_port,
+                 self.dst_ip,
+                 self.dst_port,
+                 self.established,
+                 self.drop);
+    }
 }
 
 pub fn acl_match<T: 'static + Batch<Header = NullHeader>>(parent: T, acls: Vec<Acl>) -> CompositionBatch {

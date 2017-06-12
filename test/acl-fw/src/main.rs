@@ -35,6 +35,7 @@ fn test<S: Scheduler + Sized>(ports: Vec<CacheAligned<PortQueue>>, sched: &mut S
                         established: None,
                         drop: false,
                     }];
+    acls[0].print();
     let pipelines: Vec<_> = ports
         .iter()
         .map(|port| acl_match(ReceiveBatch::new(port.clone()), acls.clone()).send(port.clone()))
