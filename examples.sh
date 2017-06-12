@@ -17,6 +17,7 @@ export examples=(
         test/acl-fw
         test/packet_generation
         test/packet_test
+        test/compress
         test/embedded-scheduler-test
         test/embedded-scheduler-dependency-test
 )
